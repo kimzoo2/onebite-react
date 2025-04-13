@@ -43,6 +43,8 @@ node start
 * <strong>CommonJS (CJS)</strong>
 * <strong>ES Module (ESM)</strong>
   * 최신 (react에서 사용)
+  * package.json 내 `"type": "module"` 통해 설정 
+    * 설정 후에는 commonJS 사용하려 할 경우 컴파일 에러, 기본적으로 함께 사용 불가 - `require is not defined in ES module scope, you can use import instead.`
 * AMD 
 * UMD
 
