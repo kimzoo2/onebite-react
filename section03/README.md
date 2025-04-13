@@ -1,0 +1,54 @@
+# Section 03
+## NodeJS
+
+### 패키지
+* 특정 목적을 갖는 프로그램의 단위 (보통 프로젝트라고 이야기함, e.g) 쇼핑몰 프로젝트
+* Node.js에서 사용하는 프로그램의 단위는 패키지라고 부른다.
+
+### init
+```zsh
+npm init
+```
+
+### run
+```zsh
+node index.js
+node src/index.js
+```
+
+#### Script 지정 (패키지 기능)
+* 일종의 매크로 -> `package.json`내 `srcipt`에 지정해 한 번에 실행
+```json
+...
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node src/index.js" 
+},
+...
+```
+
+#### 실행
+```zsh
+node start
+```
+
+
+### Module System 
+#### 모듈시스템 
+* nodejs로 복잡한 프로그램을 만들기 위해 꼭 필요한 내용
+* 모듈을 다루는 시스템 
+* 모듈을 생성하고, 불러오고, 사용하는 등의 모듈을 다루는 다양한 기능을 제공하는 시스템
+
+##### Javascript의 모듈 시스템 
+* <strong>CommonJS (CJS)</strong>
+* <strong>ES Module (ESM)</strong>
+  * 최신 (react에서 사용)
+* AMD 
+* UMD
+
+#### 모듈 
+* 간단한 온라인 쇼핑몰을 만들어야 된다면?
+  * 로그인, 회원 관리 등 여러 기능 필요 -> 하나의 파일로 관리할 수 없음 
+  * 보통 기능별로 파일 나눠서 관리 e.g) user.js, cart.js, payment.js
+  * 이 기능별로 나눠진 각각의 javascript 파일을 모듈이라고 함 
+    * user.js : user 모듈
