@@ -10,7 +10,7 @@ let [one, two, three, four = 4] = arr; // arr 변수들이 각 원소에 할당�
 // four = 4는 기본값 할당
 console.log(one, two, three, four);
 
-// 2. 객체의 구조 분호 할당
+// 2. 객체의 구조 분해 할당
 let person = {
   name: "이정환",
   age: 27,
