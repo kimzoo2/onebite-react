@@ -54,3 +54,15 @@ node start
   * 보통 기능별로 파일 나눠서 관리 e.g) user.js, cart.js, payment.js
   * 이 기능별로 나눠진 각각의 javascript 파일을 모듈이라고 함 
     * user.js : user 모듈
+
+
+### 라이브러리
+* 프로그램을 개발할 때 필요한 다양한 기능들을 미리 만들어 모듈화 해 놓은 것 
+  * 날짜, 수학, 그래픽 라이브러리
+* package-lock.json
+  * 라이브러리 추가 시 생기는 파일 
+  * 패키지가 사용하고 있는 라이브러리들의 버전이나 정보를 package.json보다 더 정확하고 엄밀하게 저장하는 파일 
+  * 다른 이유: 더 정확한 버전을 저장하고 있음 (package.json: version range)
+    * package.json과 package-lock.json의 버전 정보가 다르면 어떻게 될까? 
+* node_modules
+  * 설치한 라이브러리가 저장되는 저장소
