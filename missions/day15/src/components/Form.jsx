@@ -1,10 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import { ContactDispatchContext } from "../App";
 
-const Form = ({ onSubmit }) => {
+const Form = () => {
   const [form, setForm] = useState({
     name: "",
     email: ""
   });
+  const { onSubmit } = useContext(ContactDispatchContext);
 
   const nameRef = useRef();
   const emailRef = useRef();

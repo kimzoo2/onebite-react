@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from 'react'
+import { createContext, useCallback, useContext, useReducer } from 'react'
 import './App.css'
 import Form from './components/Form'
 import List from './components/List'
@@ -17,6 +17,9 @@ function reducer (state, action) {
   }
 }
 
+export const ContactContext = createContext();
+export const ContactDispatchContext = createContext();
+
 function App() {
   const [contacts, dispatch] = useReducer(reducer, [
     { id: 1, name: "한입스튜디오", email: "onebite.fe@gmail.com" },
@@ -34,8 +37,12 @@ function App() {
   return (
     <div className="contact-wrapper">
       <h1>Contact List</h1>
-      <section><Form onSubmit={onSubmit} /></section>
-      <section><List contacts={contacts} onDelete={onDelete} /></section>
+      <ContactContext.Provider value={{ contacts }}>
+        <ContactDispatchContext.Provider value={{ onSubmit, onDelete }}>
+          <section><Form /></section>
+          <section><List /></section>
+        </ContactDispatchContext.Provider>
+      </ContactContext.Provider>
     </div>
   )
 }

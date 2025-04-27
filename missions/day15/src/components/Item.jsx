@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContactDispatchContext } from "../App";
 
-const Item = ({ contact, onDelete }) => {
+const Item = ({ contact }) => {
+  const { onDelete } = useContext(ContactDispatchContext);
+
   const onClickDelete = (id) => {
     onDelete(id);
   }
