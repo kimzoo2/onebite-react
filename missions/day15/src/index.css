@@ -1,0 +1,57 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-wrapper section {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+section .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 10px;
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+section .item button {
+  width: 80px;
+  font-size: 10px;
+}
+
+section input {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+section button {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #c6c6c6;
+}
