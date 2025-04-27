@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 const Form = ({ onSubmit }) => {
   const [form, setForm] = useState({
@@ -34,4 +34,4 @@ const Form = ({ onSubmit }) => {
   </>
 }
 
-export default Form;
+export default React.memo(Form);

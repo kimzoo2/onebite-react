@@ -1,3 +1,5 @@
+import React from "react";
+
 const Item = ({ contact, onDelete }) => {
   const onClickDelete = (id) => {
     onDelete(id);
@@ -10,4 +12,4 @@ const Item = ({ contact, onDelete }) => {
   </div>
 }
 
-export default Item;
+export default React.memo(Item);
