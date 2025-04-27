@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useReducer } from 'react'
+import { createContext, useCallback, useContext, useMemo, useReducer } from 'react'
 import './App.css'
 import Form from './components/Form'
 import List from './components/List'
@@ -34,11 +34,15 @@ function App() {
     dispatch({ type: "DELETE", id });
   }, []);
 
+  const memoizedDispatch = useMemo(() => {
+    return { onSubmit, onDelete };
+  }, [])
+
   return (
     <div className="contact-wrapper">
       <h1>Contact List</h1>
       <ContactContext.Provider value={{ contacts }}>
-        <ContactDispatchContext.Provider value={{ onSubmit, onDelete }}>
+        <ContactDispatchContext.Provider value={memoizedDispatch}>
           <section><Form /></section>
           <section><List /></section>
         </ContactDispatchContext.Provider>
