@@ -18,23 +18,13 @@ function reducer (state, action) {
 }
 
 function App() {
-  const [form, setForm] = useState({
-    name: "",
-    email: ""
-  });
-
   const [contacts, dispatch] = useReducer(reducer, [
     { id: 1, name: "한입스튜디오", email: "onebite.fe@gmail.com" },
     { id: 2, name: "이정환", email: "king199777@gmail.com" },
   ]);
 
-  const onChange = (name, value) => {
-    setForm({ ...form, [name]: value });
-  }
-
-  const onSubmit = () => {
-    dispatch({ type: "ADD", data: form });
-    setForm({ name: "", email: "" });
+  const onSubmit = (data) => {
+    dispatch({ type: "ADD", data });
   }
 
   const onDelete = (id) => {
@@ -44,7 +34,7 @@ function App() {
   return (
     <div className="contact-wrapper">
       <h1>Contact List</h1>
-      <section><Form value={form} onChange={onChange} onSubmit={onSubmit} /></section>
+      <section><Form onSubmit={onSubmit} /></section>
       <section><List contacts={contacts} onDelete={onDelete} /></section>
     </div>
   )

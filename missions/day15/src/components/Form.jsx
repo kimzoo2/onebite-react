@@ -1,29 +1,35 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
-const Form = ({ value, onChange, onSubmit }) => {
+const Form = ({ onSubmit }) => {
+  const [form, setForm] = useState({
+    name: "",
+    email: ""
+  });
+
   const nameRef = useRef();
   const emailRef = useRef();
 
   const onChangeForm = (e) => {
-    onChange(e.target.name, e.target.value);
+    setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   const onClickAdd = () => {
-    if (!value.name) {
+    if (!form.name) {
       nameRef.current.focus();
       return;
     }
-    if (!value.email) {
+    if (!form.email) {
       emailRef.current.focus();
       return;
     }
-    onSubmit();
+    onSubmit(form);
+    setForm({ name: "", email: "" });
   }
 
   return <>
     <div className="title">Add Contact</div>
-    <input ref={nameRef} name="name" value={value.name} placeholder="이름을 입력하세요." onChange={onChangeForm} />
-    <input ref={emailRef} name="email" value={value.email} placeholder="연락처(이메일)을 입력하세요." onChange={onChangeForm} />
+    <input ref={nameRef} name="name" value={form.name} placeholder="이름을 입력하세요." onChange={onChangeForm} />
+    <input ref={emailRef} name="email" value={form.email} placeholder="연락처(이메일)을 입력하세요." onChange={onChangeForm} />
     <button onClick={onClickAdd}>Add</button>
   </>
 }
