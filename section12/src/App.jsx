@@ -5,6 +5,7 @@ import Diary from "./pages/Diary";
 import New from "./pages/New";
 import NotFound from "./pages/NotFound";
 import { useNavigate } from 'react-router-dom';
+import Edit from './pages/Edit';
 
 // 1. "/" : 모든 일기 조회하는 Home
 // 2. "/new": 새로운 일기 작성하는 New 페이지 
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
+        <Route path="/edit/:id" element={<Edit />} />
         <Route path="/diary/:id" element={<Diary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
